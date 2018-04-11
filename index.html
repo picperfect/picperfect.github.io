@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+	<link rel="stylesheet" href="style.css">
+	<title>Picture Perfect - Photo Editor</title>
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-info mb-5">
+		<div class="container">
+			<a href="#" class="navbar-brand">Picture Perfect</a>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 m-auto">
+				<div class="custom-file mb-3">
+					<input type="file" class="custom-file-input" id="upload-file">
+					<label for="upload-file" class="custom-file-label">Upload Image here</label>
+				</div>
+				<canvas id="canvas"></canvas>
+				<h4 class="text-center my-3">Filters</h4>
+				<div class="row text-center my-4">
+					<div class="col-md-3 bt">
+						<div class="btn-group btn-group sm">
+							<button class="filter-btn brightness-remove btn btn-info">-</button>
+							<button class="btn btn-secondary btn-disabled" disabled><b>Brightness</b></button>
+							<button class="filter-btn brightness-add btn btn-info">+</button>
+						</div>
+					</div>
+					<div class="col-md-3 bt">
+						<div class="btn-group btn-group sm">
+							<button class="filter-btn contrast-remove btn btn-info">-</button>
+							<button class="btn btn-secondary btn-disabled" disabled><b>Contrast</b></button>
+							<button class="filter-btn contrast-add btn btn-info">+</button>
+						</div>
+					</div>
+					<div class="col-md-3 bt">
+						<div class="btn-group btn-group sm">
+							<button class="filter-btn saturation-remove btn btn-info">-</button>
+							<button class="btn btn-secondary btn-disabled" disabled><b>Saturation</b></button>
+							<button class="filter-btn saturation-add btn btn-info">+</button>
+						</div>
+					</div>
+					<div class="col-md-3 bt">
+						<div class="btn-group btn-group sm">
+							<button class="filter-btn vibrance-remove btn btn-info">-</button>
+							<button class="btn btn-secondary btn-disabled" disabled><b>Vibrance</b></button>
+							<button class="filter-btn vibrance-add btn btn-info">+</button>
+						</div>
+					</div>
+
+				</div>
+				<div class="row text-center my-4">
+					<div class="col-md-3 bt">
+						<div class="btn-group btn-group sm">
+							<button class="filter-btn hue-remove btn btn-info">-</button>
+							<button class="btn btn-secondary btn-disabled" disabled><b>Hue</b></button>
+							<button class="filter-btn hue-add btn btn-info">+</button>
+						</div>
+					</div>
+					<div class="col-md-3 bt">
+						<div class="btn-group btn-group sm">
+							<button class="filter-btn exposure-remove btn btn-info">-</button>
+							<button class="btn btn-secondary btn-disabled" disabled><b>Exposure</b></button>
+							<button class="filter-btn exposure-add btn btn-info">+</button>
+						</div>
+					</div>
+					<div class="col-md-3 bt">
+						<div class="btn-group btn-group sm">
+							<button class="filter-btn stackblur-remove btn btn-info">-</button>
+							<button class="btn btn-secondary btn-disabled" disabled><b>Stack Blur</b></button>
+							<button class="filter-btn stackblur-add btn btn-info">+</button>
+						</div>
+					</div>
+					<div class="col-md-3 bt">
+						<div class="btn-group btn-group sm">
+							<button class="filter-btn sharpen-remove btn btn-info">-</button>
+							<button class="btn btn-secondary btn-disabled" disabled><b>Sharpen</b></button>
+							<button class="filter-btn sharpen-add btn btn-info">+</button>
+						</div>
+					</div>
+
+				</div>
+
+				<h4 class="text-center my-3">Effects</h4>
+				<div class="row mb-3">
+					<div class="col-md-3 bt">
+						<button class="filter-btn vintage-add btn btn-dark btn-block">Vintage</button>
+					</div>
+					<div class="col-md-3 bt">
+						<button class="filter-btn lomo-add btn btn-dark btn-block">Lomo</button>
+					</div>
+					<div class="col-md-3 bt">
+						<button class="filter-btn clarity-add btn btn-dark btn-block">Clarity</button>
+					</div>
+					<div class="col-md-3 bt">
+						<button class="filter-btn sincity-add btn btn-dark btn-block">Sin City</button>
+					</div>
+					
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-md-3 bt">
+						<button class="filter-btn crossprocess-add btn btn-dark btn-block">Cross Process</button>
+					</div>
+					<div class="col-md-3 bt">
+						<button class="filter-btn pinhole-add btn btn-dark btn-block">Pinhole</button>
+					</div>
+					<div class="col-md-3 bt">
+						<button class="filter-btn nostalgia-add btn btn-dark btn-block">Nostalgia</button>
+					</div>
+					<div class="col-md-3 bt">
+						<button class="filter-btn hermajesty-add btn btn-dark btn-block">Her Majesty</button>
+					</div>
+					
+				</div>
+				<div class="row mb-3">
+					<div class="col-md-3 bt">
+						<button class="filter-btn hazydays-add btn btn-dark btn-block">Hazy Dyas</button>
+					</div>
+					<div class="col-md-3 bt">
+						<button class="filter-btn love-add btn btn-dark btn-block">Love</button>
+					</div>
+					<div class="col-md-3 bt">
+						<button class="filter-btn sunrise-add btn btn-dark btn-block">Sunrise</button>
+					</div>
+					<div class="col-md-3 bt">
+						<button class="filter-btn jarques-add btn btn-dark btn-block">Jarques</button>
+					</div>
+					
+				</div>
+
+				<div class="row my-5">
+					<div class="col-md-6 bt">
+						<button id="download-btn" class="btn btn-primary btn-block">Download Image</button>
+						
+					</div>
+					<div class="col-md-6 bt">
+						<button id="revert-btn" class="btn btn-danger btn-block">Remove Filters</button>
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<footer align="center">
+		© <a href="http:\\webhubstudio.cf">Webhub Studio</a>. All Rights Reserved | Developed by Sonu Kumar
+	</footer>
+	<div class="side">
+		<a href="http://www.facebook.com/itsmesonu1" class="fa fa-facebook"></a>
+		<a href="http://twitter.com/sonu1000raw" class="fa fa-twitter"></a>
+		<a href="https://www.linkedin.com/in/sonucr7" class="fa fa-linkedin"></a>
+		<a href="http://github.com/sonucr7" class="fa fa-github"></a>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+	<script src="main.js"></script>
+	
+</body>
+<body oncontextmenu="return false;">
+</html>
